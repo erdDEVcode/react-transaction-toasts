@@ -7,7 +7,7 @@ import TrackTransactionToast from './components/TrackTransactionToast'
 import { ToastStyles } from './components/common'
 
 interface UseTransactionToastsResult {
-  trackTransaction: (txHash: string) => void,
+  trackTransaction: (txHash: string, optionOverrides?: Options) => void,
 }
 
 export interface Options {
