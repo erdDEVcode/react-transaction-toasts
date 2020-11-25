@@ -1,3 +1,11 @@
+# [1.2.0](https://github.com/erdDEVcode/react-transaction-toasts/compare/v1.1.0...v1.2.0) (2020-11-25)
+
+
+### Features
+
+* enable disabling auto-close ([69a45f3](https://github.com/erdDEVcode/react-transaction-toasts/commit/69a45f33d0ea4797c6763b1e597870bb78cc2df2))
+* enable disabling auto-close ([ce4d9b0](https://github.com/erdDEVcode/react-transaction-toasts/commit/ce4d9b06da8828bbbdb0c3e7f565afa68dc03908))
+
 # [1.1.0](https://github.com/erdDEVcode/react-transaction-toasts/compare/v1.0.2...v1.1.0) (2020-11-25)
 
 ## [1.0.2](https://github.com/erdDEVcode/react-transaction-toasts/compare/v1.0.1...v1.0.2) (2020-11-25)
