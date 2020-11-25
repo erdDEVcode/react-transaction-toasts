@@ -1,17 +1,36 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from 'react'
+import { useToasts } from 'react-toast-notifications'
+import { useCallback } from 'react'
+import { Provider } from 'elrondjs'
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+import TrackTransactionToast from './components/TrackTransactionToast'
+import { ToastStyles } from './components/common'
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+interface UseTransactionToastsResult {
+  trackTransaction?: (txHash: string) => void,
+}
+
+export interface Options {
+  provider?: Provider,
+  styles?: ToastStyles,
+}
+
+export const useTransactionToasts = (options?: Options): UseTransactionToastsResult => {
+  const { addToast } = useToasts()
+
+  const trackTransaction = useCallback((txHash: string, optionOverrides?: Options) => {
+    const opts = Object.assign({}, options, optionOverrides)
+
+    if (!opts.provider) {
+      throw new Error('Provider must be set')
+    }
+
+    addToast(
+      <TrackTransactionToast txHash={txHash} {...opts} provider={opts.provider} />
+    )
+  }, [options])
+
+  return { trackTransaction }
+}
+
+export { TransactionToastsProvider } from './contexts'
