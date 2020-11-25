@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/erdDEVcode/react-transaction-toasts/compare/v1.0.1...v1.0.2) (2020-11-25)
+
+
+### Bug Fixes
+
+* various styling issues ([6ae74c8](https://github.com/erdDEVcode/react-transaction-toasts/commit/6ae74c872cec3197683a4211e113db0db0104e00))
+
 ## [1.0.1](https://github.com/erdDEVcode/react-transaction-toasts/compare/v1.0.0...v1.0.1) (2020-11-25)
 
 
