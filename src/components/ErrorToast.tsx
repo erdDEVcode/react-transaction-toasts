@@ -14,7 +14,7 @@ interface Props extends DefaultProps {
 
 const ErrorToast: React.FunctionComponent<Props> = ({ children, ...props }) => {
   return(
-    <Container {...props}>
+    <Container icon='⚠' {...props}>
       {children}
     </Container>
   )

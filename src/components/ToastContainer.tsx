@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { flex } from 'emotion-styled-utils'
+import { flex, boxShadow } from 'emotion-styled-utils'
 import { DefaultProps } from './common'
-import Button from './Button'
+import IconButton from './IconButton'
 
 const Container = styled.div`
   ${flex({ direction: 'row', justify: 'flex-start', align: 'flex-start' })};
@@ -10,26 +10,32 @@ const Container = styled.div`
   border-radius: 5px;
   padding: 1rem 2rem 1rem 1rem;
   font-size: 0.9rem;
+  ${boxShadow({ color: '#666' })};
 `
 
-const CloseButton = styled(Button)`
+const CloseButton = styled(IconButton)`
   position: absolute;
-  top: 1px;
-  right: 1px;
+  top: 2px;
+  right: 2px;
   font-size: 0.8em;
-  color: inherit;
-  border: none;
+`
+
+const Icon = styled.span`
+  display: inline-block;
+  margin-right: 1em;
+  font-size: 1em;
 `
 
 interface Props extends DefaultProps {
   className?: string,
   icon?: any,
+  onClick?: () => void,
 }
 
-const ToastContainer: React.FunctionComponent<Props> = ({ className, children, icon, closeNow }) => {
+const ToastContainer: React.FunctionComponent<Props> = ({ className, children, onClick, icon, closeNow }) => {
   return (
-    <Container className={className}>
-      {icon}
+    <Container className={className} onClick={onClick}>
+      {icon ? <Icon>{icon}</Icon> : null}
       <div>
         {children}
       </div>

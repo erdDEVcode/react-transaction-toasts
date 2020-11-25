@@ -5,15 +5,18 @@ import Button from './Button'
 import { ButtonProps } from './common'
 
 const StyledButton = styled(Button)`
-  padding: 0;
-  border: 0;
+  padding: 0.1em 0.3em;
+  border-color: transparent;
+  &:hover {
+    border-color: inherit;
+  }
 `
 
-const LinkButton: React.FunctionComponent<ButtonProps> = (props: ButtonProps) => (
+const IconButton: React.FunctionComponent<ButtonProps> = ({ ...props }) => (
   <StyledButton {...props} />
 )
 
-export default LinkButton
+export default IconButton
 
 
 

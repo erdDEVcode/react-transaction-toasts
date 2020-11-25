@@ -1,12 +1,29 @@
 import React from 'react'
 import styled from '@emotion/styled'
+import { buttonStyles } from 'emotion-styled-utils'
 
 import { ButtonProps } from './common'
 
 const StyledButton = styled.button`
-  font-size: 1.2rem;
-  padding: 1em 2em;
+  font-weight: lighter;
+  font-size: 1rem;
+  padding: 0.7em 1.4em;
   border-radius: 5px;
+
+  ${({ disabled }) => buttonStyles({
+    bgColor: 'transparent',
+    textColor: 'inherit',
+    borderColor: 'inherit',
+    hoverBgColor: 'transparent',
+    hoverTextColor: 'inherit',
+    hoverBorderColor: 'inherit',
+    shadowColor: 'transparent',
+    inDisabledState: disabled,
+  })};
+
+  &:hover {
+    transform: scale(1.2);
+  }
 `
 
 const Content = styled.div`

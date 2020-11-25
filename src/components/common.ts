@@ -40,7 +40,7 @@ export const DEFAULT_STYLES = {
     iconColor: '#0ff',
   },
   success: {
-    bgColor: '##93e9be',
+    bgColor: '#93e9be',
     textColor: '#000',
     iconColor: '#0a0',
   },
