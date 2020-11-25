@@ -7,36 +7,46 @@ import TrackTransactionToast from './components/TrackTransactionToast'
 import ErrorToast from './components/ErrorToast'
 import { ToastStyles } from './components/common'
 
-interface UseTransactionToastsResult {
-  trackTransaction: (txHash: string, optionOverrides?: Options) => void,
-  showError: (msg: string, optionOverrides?: Options) => void,
-}
-
-export interface Options {
-  provider?: Provider,
+export interface StyleOptions {
   styles?: ToastStyles,
 }
 
-export const useTransactionToasts = (options?: Options): UseTransactionToastsResult => {
+export interface HookOptions extends StyleOptions {
+  provider?: Provider,
+}
+
+export interface ShowErrorOptions extends StyleOptions {
+}
+
+export interface TrackTransactionOptions extends HookOptions {
+  disableAutoCloseOnSuccess?: boolean,
+}
+
+interface UseTransactionToastsResult {
+  trackTransaction: (txHash: string, opts?: TrackTransactionOptions) => void,
+  showError: (msg: string, opts?: ShowErrorOptions) => void,
+}
+
+export const useTransactionToasts = (options?: HookOptions): UseTransactionToastsResult => {
   const { addToast } = useToasts()
 
-  const trackTransaction = useCallback((txHash: string, optionOverrides?: Options) => {
-    const opts = Object.assign({}, options, optionOverrides)
+  const trackTransaction = useCallback((txHash: string, opts?: TrackTransactionOptions) => {
+    const finalOpts = Object.assign({}, options, opts)
 
-    if (!opts.provider) {
+    if (!finalOpts.provider) {
       throw new Error('Provider must be set')
     }
 
     addToast(
-      <TrackTransactionToast txHash={txHash} {...opts} provider={opts.provider} />
+      <TrackTransactionToast txHash={txHash} {...finalOpts} provider={finalOpts.provider} />
     )
   }, [options])
 
-  const showError = useCallback((msg: string, optionOverrides?: Options) => {
-    const opts = Object.assign({}, options, optionOverrides)
+  const showError = useCallback((msg: string, opts?: ShowErrorOptions) => {
+    const finalOps = Object.assign({}, options, opts)
 
     addToast(
-      <ErrorToast {...opts}><p>{msg}</p></ErrorToast>
+      <ErrorToast {...finalOps}><p>{msg}</p></ErrorToast>
     )
   }, [options])
 

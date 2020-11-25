@@ -96,22 +96,23 @@ const TxDetails: React.FunctionComponent<DetailsProps> = ({ provider, txHash, tx
 interface Props extends DefaultProps {
   txHash: string,
   provider: Provider,
+  disableAutoCloseOnSuccess?: boolean,
 }
 
-const Toast: React.FunctionComponent<Props> = ({ provider, txHash, closeAfter, ...props }) => {
+const Toast: React.FunctionComponent<Props> = ({ provider, txHash, closeAfter, disableAutoCloseOnSuccess, ...props }) => {
   const { tx, error } = useGetTransaction(provider, txHash)
 
   useEffect(() => {
     let timer: any
 
-    if (tx?.status === TransactionStatus.SUCCESS && closeAfter) {
+    if (tx?.status === TransactionStatus.SUCCESS && closeAfter && !disableAutoCloseOnSuccess) {
       timer = closeAfter(3000)
     }
 
     return () => {
       clearTimeout(timer)
     }
-  }, [ tx, closeAfter ])
+  }, [tx, closeAfter, disableAutoCloseOnSuccess ])
 
   if (error) {
     return (
