@@ -13,13 +13,13 @@ export interface StyleOptions {
 
 export interface HookOptions extends StyleOptions {
   provider?: Provider,
+  disableAutoCloseOnSuccess?: boolean,
 }
 
 export interface ShowErrorOptions extends StyleOptions {
 }
 
 export interface TrackTransactionOptions extends HookOptions {
-  disableAutoCloseOnSuccess?: boolean,
 }
 
 interface UseTransactionToastsResult {
