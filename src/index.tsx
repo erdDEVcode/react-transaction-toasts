@@ -9,7 +9,7 @@ import { ToastStyles } from './components/common'
 
 interface UseTransactionToastsResult {
   trackTransaction: (txHash: string, optionOverrides?: Options) => void,
-  showTransactionError: (msg: string, optionOverrides?: Options) => void,
+  showError: (msg: string, optionOverrides?: Options) => void,
 }
 
 export interface Options {
@@ -32,7 +32,7 @@ export const useTransactionToasts = (options?: Options): UseTransactionToastsRes
     )
   }, [options])
 
-  const showTransactionError = useCallback((msg: string, optionOverrides?: Options) => {
+  const showError = useCallback((msg: string, optionOverrides?: Options) => {
     const opts = Object.assign({}, options, optionOverrides)
 
     addToast(
@@ -40,7 +40,7 @@ export const useTransactionToasts = (options?: Options): UseTransactionToastsRes
     )
   }, [options])
 
-  return { trackTransaction, showTransactionError }
+  return { trackTransaction, showError }
 }
 
 export { TransactionToastsProvider } from './contexts'
