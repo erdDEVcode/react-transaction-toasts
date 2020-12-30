@@ -40,23 +40,8 @@ const DetailsContainer = styled.div`
   margin-top: 1rem;
 `
 
-const Hash = styled.div`
-  margin-bottom: 1rem;
-  strong {
-    font-weight: bolder;
-  }
-`
-
 const ViewButton = styled(Button)`
-`
-
-const ShowDetailsButton = styled(Button)`
-  display: block;
-  font-size: 0.6rem;
-`
-
-const DetailsInnerDiv = styled.div`
-  margin-top: 1rem;
+  font-size: 80%;
 `
 
 interface DetailsProps {
@@ -66,29 +51,15 @@ interface DetailsProps {
 }
 
 const TxDetails: React.FunctionComponent<DetailsProps> = ({ provider, txHash, tx }) => {
-  const [showDetails, setShowDetails] = useState(false)
-
-  const toggleDetails = useCallback(() => {
-    setShowDetails(!showDetails)
-  }, [showDetails])
-
   return tx ? (
     <DetailsContainer>
-      <ShowDetailsButton onClick={toggleDetails}>
-        {showDetails ? '- Hide details' : '+ Show details'}
-      </ShowDetailsButton>
-      {showDetails ? (
-        <DetailsInnerDiv>
-          <Hash><strong>Id: </strong><span>{txHash}</span></Hash>
-          <ViewTransactionInExplorer id={txHash} provider={provider}>
-            {({ onClick }: ViewInExplorerContext) => (
-              <ViewButton icon='open-external' onClick={onClick}>
-                View in explorer ↗
-              </ViewButton>
-            )}
-          </ViewTransactionInExplorer>
-        </DetailsInnerDiv>
-      ) : null}
+      <ViewTransactionInExplorer id={txHash} provider={provider}>
+        {({ onClick }: ViewInExplorerContext) => (
+          <ViewButton icon='open-external' onClick={onClick}>
+            View in explorer ↗
+          </ViewButton>
+        )}
+      </ViewTransactionInExplorer>
     </DetailsContainer>
   ) : null
 }
