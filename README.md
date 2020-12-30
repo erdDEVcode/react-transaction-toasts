@@ -1,10 +1,11 @@
-[![NPM module](https://badge.fury.io/js/react-transaction-toasts.svg)](https://badge.fury.io/js/react-transaction-toasts)
-[![Join the community](https://img.shields.io/badge/Chat%20on-Telegram-brightgreen.svg?color=0088cc)](https://t.me/erdDEV)
-[![Follow on Twitter](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&label=Follow&maxAge=2592000)](https://twitter.com/erd_dev)
+
+**TODO: screenshots here**
 
 # react-transaction-toasts
 
-**TODO: screenshots here**
+[![NPM module](https://badge.fury.io/js/react-transaction-toasts.svg)](https://badge.fury.io/js/react-transaction-toasts)
+[![Join the community](https://img.shields.io/badge/Chat%20on-Telegram-brightgreen.svg?color=0088cc)](https://t.me/erdDEV)
+[![Follow on Twitter](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&label=Follow&maxAge=2592000)](https://twitter.com/erd_dev)
 
 React component for visualizing [Elrond](https://elrond.com) transaction progress.
 
