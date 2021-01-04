@@ -1,6 +1,5 @@
-[![scr1](./screenshot.png)
-
-[![scr2](./screenshot2.png)
+![scr1](./screenshot.png)
+![scr2](./screenshot2.png)
 
 # react-transaction-toasts
 
