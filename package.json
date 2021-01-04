@@ -9,7 +9,6 @@
   "license": "MIT",
   "files": [
     "dist",
-    "screenshot*.png",
     "package.json",
     "README.md",
     "CHANGELOG.md",
