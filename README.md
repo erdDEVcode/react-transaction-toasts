@@ -1,5 +1,5 @@
 ![scr1](https://raw.githubusercontent.com/erdDEVcode/react-transaction-toasts/master/screenshot.png)
-![scr2](https://raw.githubusercontent.com/erdDEVcode/react-transaction-toasts/master/screensho2.png)
+![scr2](https://raw.githubusercontent.com/erdDEVcode/react-transaction-toasts/master/screenshot2.png)
 
 # react-transaction-toasts
 
