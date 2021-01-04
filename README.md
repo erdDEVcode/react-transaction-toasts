@@ -1,5 +1,6 @@
+[![scr1](./screenshot.png)]
 
-**TODO: screenshots here**
+[![scr2](./screenshot2.png)]
 
 # react-transaction-toasts
 
@@ -14,19 +15,52 @@ React component for visualizing [Elrond](https://elrond.com) transaction progres
 * Customizable styling.
 * Powered by [react-toast-notifications](https://github.com/jossmac/react-toast-notifications).
 
+Live demo: [https://string.erd.dev](https://string.erd.dev)
+
 ## Installation
 
-This package requires React 17 or above.
+_Note: This package requires React 17 or above._
 
 ```shell
-npm install --save react-transaction-toasts react@17
+npm install --save react-transaction-toasts react@17 elrondjs
 ```
 
 ## Usage
 
-**TODO**
+```js
+import { useTransactionToasts } from 'react-transaction-toasts'
+import { useCallback } from 'react'
+import { ProxyProvider } from 'elrondjs'
+
+// React functional component
+export default () => {
+  const { trackTransaction, showError } = useTransactionToasts()
+
+  const sendTransaction = useCallback(async () => {
+    const provider = new ProxyProvider(...)
+    const signedTx = ...
+
+    try {
+      const ret = await provider.sendSignedTransaction(signedTx)
+      trackTransaction(ret.hash, { provider })
+    } catch (err) {
+      showError(err.message)
+    }
+  })
+
+  return (
+    <button onClick={sendTransaction}>Send</button>
+  )
+}
+```
+
+By default the toast notification automatically disappears after a few seconds for a 
+transaction that succeeds. To prevent this happening:
 
 ```js
+const { trackTransaction, showError } = useTransactionToasts({
+  disableAutoCloseOnSuccess: true,
+})
 ```
 
 ## Developer guide
