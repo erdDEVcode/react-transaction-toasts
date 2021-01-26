@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react'
 import styled from '@emotion/styled'
-import { ToastProvider, ToastProps } from 'react-toast-notifications'
+import { ToastProvider, ToastProps, ToastProviderProps } from 'react-toast-notifications'
 
 const ToastContainer = styled.div`
   margin-bottom: 0.3rem;
@@ -30,12 +30,16 @@ const CustomToast: React.FunctionComponent<ToastProps> = ({ children, onDismiss:
   )
 }
 
-export const TransactionToastsProvider: React.FunctionComponent = ({ children }) => {
+export const TransactionToastsProvider: React.FunctionComponent<ToastProviderProps> = props => {
+  const customProps: ToastProviderProps = {
+    placement: 'top-right',
+    autoDismissTimeout: 5000,
+    ...props,
+  }
+
   return (
     <Context.Provider value={{}}>
-      <ToastProvider components={{ Toast: CustomToast }} autoDismissTimeout={5000} placement='top-right'>
-        {children}
-      </ToastProvider>
+      <ToastProvider components={{ Toast: CustomToast }} {...customProps} />
     </Context.Provider>
   )
 }

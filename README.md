@@ -26,6 +26,29 @@ npm install --save react-transaction-toasts react@17 elrondjs
 
 ## Usage
 
+First, you need to setup the `TransactionToastProvider`. In your top-level app component:
+
+```js
+import { Component } from 'react'
+import { TransactionToastsProvider } from 'react-transaction-toasts'
+
+export default class App extends React.Component {
+  componentDidCatch (error: Error, info: React.ErrorInfo) {
+    console.error(error, info)
+  }
+
+  render() {
+    return (
+      <TransactionToastProvider>
+        {/* app/routing components here */}
+      </TransactionToastProvider>
+    )
+  }
+}
+```
+
+Then in any child component you can do:
+
 ```js
 import { useTransactionToasts } from 'react-transaction-toasts'
 import { useCallback } from 'react'
@@ -53,6 +76,8 @@ export default () => {
 }
 ```
 
+### Customization
+
 By default the toast notification automatically disappears after a few seconds for a 
 transaction that succeeds. To prevent this happening:
 
@@ -62,9 +87,16 @@ const { trackTransaction, showError } = useTransactionToasts({
 })
 ```
 
-## Developer guide
+The `TransactionToastsProvider` component takes the same properties as `ToastProvider` in the `react-toast-notification` package. The defaults set are:
 
-This is for anyone working on the this codebase.
+* `placement`: `top-right`
+* `autoDismissTimeout`: `5000`
+
+[See the full docs](https://github.com/jossmac/react-toast-notifications#toastprovider-props) for more information on values you can set.
+
+## Contributor guide
+
+This is for anyone working on this codebase.
 
 Build and watch component:
 
