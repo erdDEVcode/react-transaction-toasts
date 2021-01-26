@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/erdDEVcode/react-transaction-toasts/compare/v1.3.4...v1.4.0) (2021-01-26)
+
+
+### Features
+
+* enable customization of toast provider ([7d30544](https://github.com/erdDEVcode/react-transaction-toasts/commit/7d30544965419172fc414d754416089b72d2a2e1))
+
 ## [1.3.4](https://github.com/erdDEVcode/react-transaction-toasts/compare/v1.3.3...v1.3.4) (2021-01-13)
 
 ## [1.3.3](https://github.com/erdDEVcode/react-transaction-toasts/compare/v1.3.2...v1.3.3) (2021-01-04)
