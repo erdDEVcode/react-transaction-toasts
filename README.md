@@ -1,7 +1,7 @@
 ![scr1](https://raw.githubusercontent.com/erdDEVcode/react-transaction-toasts/master/screenshot.png)
 ![scr2](https://raw.githubusercontent.com/erdDEVcode/react-transaction-toasts/master/screenshot2.png)
 
-# react-transaction-toasts
+# DEPRECATED - react-transaction-toasts is now deprecated and no longer maintained.
 
 [![NPM module](https://badge.fury.io/js/react-transaction-toasts.svg)](https://badge.fury.io/js/react-transaction-toasts)
 [![Join the community](https://img.shields.io/badge/Chat%20on-Telegram-brightgreen.svg?color=0088cc)](https://t.me/erdDEV)
@@ -13,8 +13,6 @@ React component for visualizing [Elrond](https://elrond.com) transaction progres
 * Optionally auto-hide a notification once transaction completes.
 * Customizable styling.
 * Powered by [react-toast-notifications](https://github.com/jossmac/react-toast-notifications).
-
-Live demo: [https://string.erd.dev](https://string.erd.dev)
 
 ## Installation
 
